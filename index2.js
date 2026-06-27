@@ -17,7 +17,7 @@ app.use(cors())
         const number2 = parseFloat(req.query.number2);
 
         if (isNaN(number1) || isNaN(number2)) {
-        return res.json({ "result": "Error : ขอเลขตะพี่" });
+        return res.json({ "result": "ขอเลขตะพี่" });
     }
         res.json({"result": number1 + number2})
     })
