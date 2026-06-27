@@ -7,10 +7,26 @@ function calculate() {
         document.getElementById('result').innerText = "Result : ผมขอเลขได้ป่าวพี่บ่าว";
         return; 
     }
-
-        fetch(`http://localhost:3000/calculate?number1=${number1}&number2=${number2}&operator=${encodeURIComponent(operator)}`)
-        .then(response => response.json())
+    if (operator === '+' ){
+        fetch(`http://localhost:3000/calculate/api/plus?number1=${number1}&number2=${number2}`)
+        .then(res => res.json())
         .then(data => {
-            document.getElementById('result').innerText = "Result : " + data.result;
-        })
-}
+            document.getElementById('result').innerText = "Result :" + data.result; });
+    } else if (operator === '-' ){
+        fetch(`http://localhost:3000/calculate/api/minus?number1=${number1}&number2=${number2}`)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('result').innerText = "Result :" + data.result; });
+    } else if (operator === '*' ){
+        fetch(`http://localhost:3000/calculate/api/times?number1=${number1}&number2=${number2}`)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('result').innerText = "Result :" + data.result; });
+    } else if (operator === '/' ){
+        fetch(`http://localhost:3000/calculate/api/divine?number1=${number1}&number2=${number2}`)
+        .then(res => res.json())
+        .then(data => {
+            document.getElementById('result').innerText = "Result :" + data.result; });    
+    }    
+}        
+  
